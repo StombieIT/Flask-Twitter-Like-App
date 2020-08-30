@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block title %}{{ post.title }}{% endblock %}
+
+{% block content %}
+	<h2>{{ post.title }}</h2>
+	{% if post.edit %}
+		<small>(изменено)</small>
+	{% endif %}
+	<hr>
+	{{ post.content }}<br>
+	<hr>
+	<em>Автор: </em>{{ post.user.login }}<br>
+	<em>Дата публикации: </em>{{ post.publication_datetime.strftime('%d.%m.%Y') }}<br>
+	<em>Время публикации: </em>{{ post.publication_datetime.strftime('%H:%M') }}
+{% endblock %}
